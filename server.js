@@ -1,7 +1,3 @@
-// Setup empty JS object to act as endpoint for all routes
-//projectData = {};
-const data = {};
-
 // Require Express to run server and routes
 const express = require('express');
 
@@ -32,6 +28,8 @@ app.get('/all', (req, res)=>{res.send(data);});
   
 //Post Route
 
+const data = []
+
 app.post('/add', addfeeling);
 
 function addfeeling(req, res) { 
@@ -46,32 +44,4 @@ function addfeeling(req, res) {
   data = [];
   console.log(data);
 }
-
-
-
-
-
-
-// 1 listo -  Setup empty JS object to act as endpoint for all routes
-
-// 1 listo - Express to run server and routes
-
-// 1 listo - Start up an instance of app
-
-/* 1 listo - Dependencies */
-
-/* 1 listo - Middleware*/
-              //Here we are configuring express to use body-parser as middle-ware.
-// 1 listo - Cors for cross origin allowance
-
-// 1 listo - Initialize the main project folder
-
-// 1 listo - Spin up the server
-// 1 listo - Callback to debug
-
-// Initialize all route with a callback function
-
-// Callback function to complete GET '/all'
-
-// Post Route
   
