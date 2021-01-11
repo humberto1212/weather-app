@@ -1,9 +1,8 @@
-// Date 
 const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurday", "Friday", "Saturday"]
 const d = new Date();
 const day = d.getDay();
 let dayName = dayNames[day];
-let date = ''
+
 
 
 
@@ -17,15 +16,21 @@ document.getElementById('generate').addEventListener('click', action);
 function action(e) {
     const zip = document.getElementById('zip').value;
     const newFeelings = document.getElementById('feelings').value;
-    date = dayName +'.'+ d.getMonth()+1 + '.'+ d.getFullYear();
-    console.log(newFeelings)
-    getZip(baseURL,zip,apiKey);
+    let date = dayName +'.'+ d.getMonth()+1 + '.'+ d.getFullYear();
+    console.log(newFeelings);
+    getZip(baseURL,zip,apiKey)
+    .then(function(data){
+        postData('/add', {date: date, temp: data.main.temp, content: newFeelings})            
+    })    
+    .then(function(){
+      retrieveData('/all')
+    })   
 }
 
 // Get data
 const getZip = async (baseURL, newZip, key)=>{
 
-    const res = await fetch(baseURL+newZip+',DE&APPID='+key)
+    const res = await fetch(baseURL+newZip+'&units=metric'+'&DE&APPID='+key)
     try {
         const data = await res.json();
         console.log(data)
@@ -54,13 +59,3 @@ const postData = async ( url = '', data = {})=>{
       console.log("error", error);
     }
 }
-
-function postGet(){
-    postData('/add', {date: date, temp: temp, content: content.newFeelings})
-      .then(function(data){
-        retrieveData('/all')
-    })
-}
-
-postGet();
-
