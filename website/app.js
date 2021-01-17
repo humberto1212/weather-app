@@ -1,30 +1,26 @@
+// Date 
 const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurday", "Friday", "Saturday"]
 const d = new Date();
 const day = d.getDay();
 let dayName = dayNames[day];
+let date = ''
 
-
-
-
-// Api key
+// Api Url & key
 let baseURL = 'http://api.openweathermap.org/data/2.5/weather?q='
 const apiKey = 'af52f6e1be6f050061364fb6e1a03e35';
 
 
 document.getElementById('generate').addEventListener('click', action);
 
-function action(e) {
+function action() {
     const zip = document.getElementById('zip').value;
     const newFeelings = document.getElementById('feelings').value;
-    let date = dayName +'.'+ d.getMonth()+1 + '.'+ d.getFullYear();
-    console.log(newFeelings);
+    date = dayName +' '+ d.getMonth()+1 + ' '+ d.getFullYear();
     getZip(baseURL,zip,apiKey)
     .then(function(data){
-        postData('/add', {date: date, temp: data.main.temp, content: newFeelings})            
+        postData('/add', {date: date, temp: data.main.temp, content: newFeelings})
+        updateUI()       
     })    
-    .then(function(){
-      retrieveData('/all')
-    })   
 }
 
 // Get data
@@ -52,10 +48,25 @@ const postData = async ( url = '', data = {})=>{
     body: JSON.stringify(data),
  });
     try {
-        const newData = await response.json();
+        const newData = await response.json(); //por que se queda en response??
         console.log(newData);
         return newData;
     }catch(error) {
       console.log("error", error);
+    }
+}
+
+const updateUI = async () => {
+    const request = await fetch('/all');
+    try{
+        const allData = await request.json(); 
+        document.getElementById('date').innerHTML = allData[0].date;
+        document.getElementById('temp').innerHTML = allData[0].temp;
+        document.getElementById('content').innerHTML = allData[0].content;
+        document.getElementById('date-last').innerHTML = allData[1].date;
+        document.getElementById('temp-last').innerHTML = allData[1].temp;
+        document.getElementById('content-last').innerHTML = allData[1].content;
+    }catch(error){
+        console.log("error", error)
     }
 }
