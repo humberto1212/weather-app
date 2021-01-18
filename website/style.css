@@ -66,8 +66,7 @@ button {
     text-transform: uppercase;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1.5px;
-    color: #1949e6eb;
-   
+    color: #1949e6eb; 
 }
 
 .holder-recent {
