@@ -31,9 +31,9 @@ app.get('/all', (req, res)=>{res.send(data);});
   
 //Post Route
 const data = [];
-app.post('/add', addfeeling);
+app.post('/add', WeatherAndInfo);
 
-function addfeeling(req, res) {
+function WeatherAndInfo(req, res) {
   let grados = " °C" 
   let newData = req.body;
   let newEntry = {
