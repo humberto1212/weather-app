@@ -17,9 +17,9 @@ function action() {
     date = dayName +' '+ d.getMonth()+1 + ' '+ d.getFullYear();
     getZip(baseURL,zip,apiKey)
     .then(function(data){
-        postData('/add', {date: date, temp: data.main.temp, content: newFeelings})
-        updateUI()       
+        postData('/add', {date: date, temp: data.main.temp, content: newFeelings})      
     })    
+    .then(() => updateUI() );
 }
 
 // Get data
