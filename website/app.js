@@ -19,7 +19,9 @@ function action() {
     .then(function(data){
         postData('/add', {date: date, temp: data.main.temp, content: newFeelings})      
     })    
-    .then(() => updateUI() );
+    .then(() =>{
+         updateUI() 
+    })
 }
 
 // Get data
