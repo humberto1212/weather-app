@@ -66,7 +66,8 @@ button {
     text-transform: uppercase;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1.5px;
-    color: #1949e6eb; 
+    color: #1949e6eb;
+   
 }
 
 .holder-recent {
@@ -113,24 +114,6 @@ button {
     border-radius: 15px;
 }
 
-#entryHolder-last {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    height: 180px;
-    margin-top: 20px;
-    margin-left: 10px;
-}
-
-#temp-last {
-    font-weight: bold;
-    font-size: 64px;
-}
-
-#content-last {
-    font-size: 44px;
-}
-
 /* Devices with min 768px height */
 @media screen and (min-width: 768px) {
 
@@ -159,11 +142,6 @@ button {
     .holder-recent {
         width: 720px; 
         margin-top: -100px;  
-    }
-
-    .holder-last {
-        width: 720px;
-        margin-top: 0;   
     }
 
     button {
