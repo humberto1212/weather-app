@@ -49,7 +49,7 @@ const postData = async ( url = '', data = {})=>{
     body: JSON.stringify(data),
  });
     try {
-        const newData = await response.json(); //por que se queda en response??
+        const newData = await response.json();
         console.log(newData);
         return newData;
     }catch(error) {
