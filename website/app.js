@@ -1,4 +1,4 @@
-// Date 
+// New date
 const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurday", "Friday", "Saturday"]
 const d = new Date();
 const day = d.getDay();
@@ -59,13 +59,9 @@ const updateUI = async () => {
     const request = await fetch('/all');
     try{
         const allData = await request.json(); 
-        document.getElementById('date').innerHTML = allData[0].date;
-        document.getElementById('temp').innerHTML = allData[0].temp;
-        document.getElementById('content').innerHTML = allData[0].content;
-        document.getElementById('date-last').innerHTML = allData[1].date;
-        document.getElementById('temp-last').innerHTML = allData[1].temp;
-        document.getElementById('content-last').innerHTML = allData[1].content;
+        document.getElementById('date').innerHTML = allData.date;
+        document.getElementById('temp').innerHTML = allData.temp;
+        document.getElementById('content').innerHTML = allData.content;
     }catch(error){
         console.log("error", error)
     }
-}
