@@ -42,5 +42,5 @@ function weather(req, res) {
   }
   projectData = newEntry;
   res.send(projectData);
-  console.log(dprojectData);
+  console.log(projectData);
 }
