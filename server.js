@@ -39,8 +39,8 @@ function weather(req, res) {
     date: newData.date,
     temp: newData.temp + grados,
     content: newData.content
-  }
+  };
   projectData = newEntry;
   res.send(projectData);
   console.log(projectData);
-}
+};
