@@ -1,9 +1,9 @@
 // New date
-const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurday", "Friday", "Saturday"]
+const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurday", "Friday", "Saturday"];
 const d = new Date();
 const day = d.getDay();
 let dayName = dayNames[day];
-let date = ''
+let date = '';
 
 // Api Url & key
 let baseURL = 'http://api.openweathermap.org/data/2.5/weather?q='
@@ -22,7 +22,7 @@ function action() {
     .then(() =>{
          updateUI() 
     })
-}
+};
 
 // Get data
 const getZip = async (baseURL, newZip, key)=>{
@@ -33,9 +33,9 @@ const getZip = async (baseURL, newZip, key)=>{
         console.log(data)
         return data;
     }catch(error) {
-        console.log("error", error )
+        console.log("error", error );
     }
-}
+};
 
 // Post Data
 const postData = async ( url = '', data = {})=>{
@@ -65,5 +65,5 @@ const updateUI = async () => {
         document.getElementById('temp').innerHTML = allData.temp;
         document.getElementById('content').innerHTML = allData.content;
     }catch(error){
-        console.log("error", error)
-    }
+        console.log("error", error);
+    };
