@@ -19,7 +19,7 @@ In This project was created an asynchronous web app that uses Web API and user d
 ### Instructions:
 - Go to [Open Weather](https://openweathermap.org/api) and get your API key. This has to be inserted in the app.js file.
 - In the terminal `npm install` to downloads a package and it's dependencies.
-- `node server.js` to execute the server.js file.
+- `node server.js` in the terminal to execute the server.js file.
 - Open (http://localhost:8080)
 
 ### Link
